@@ -1,0 +1,30 @@
+.main {
+	border: double grey;
+	height: 500px;
+}
+
+.header {
+	border-bottom: 1.4px solid grey;
+	background-color: lightgrey; 
+}
+
+.header h2 {
+	margin: 0;
+	padding: 15px;
+}
+
+.movies {
+	margin: 20px;
+	border: 1px solid grey;
+	padding-left: 0;
+}
+
+.movies li {
+	list-style-type: none;
+	padding: 20px;
+	border-bottom: 1px solid grey;
+}
+
+.movies li:last-child {
+	border-bottom: none;
+}
