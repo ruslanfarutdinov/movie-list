@@ -14,7 +14,15 @@ class App extends React.Component {
 		var inputValue = inputField.value;
 
 		var searchResult = this.state.allMovies.filter( (movie) => { 
-			return movie.title === inputValue; 
+			var isThere = true;
+			
+			for (var i = 0; i < inputValue.length; i++) {
+			  if (movie.title[i] !== inputValue[i]) {
+			  	isThere = false;
+			  }	
+			}
+			
+			return isThere;
 		});
 
 		if (searchResult.length > 0) {
