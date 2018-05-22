@@ -30,12 +30,17 @@
 	border-bottom: none;
 }
 
-.search {
+.search, .add-movies {
 	margin: 20px;
 }
 
-.search input {
+.search input, .add-movies input {
 	border-radius: 5px;
+}
+
+.add-movies button {
+	background-color: green;
+	color: white;
 }
 
 .not-found {

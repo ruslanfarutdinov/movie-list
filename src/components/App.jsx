@@ -54,6 +54,8 @@ class App extends React.Component {
 					<h2>MovieList</h2>
 				</div>
 
+				<AddMovies/>
+
 				<Search findVideo={this.findVideo.bind(this)}/>
 
 				{display}
