@@ -10,7 +10,7 @@ class App extends React.Component {
 	}
 
 	findVideo() {
-		var inputField = document.getElementById('input');
+		var inputField = document.getElementById('search-movies');
 		var inputValue = inputField.value;
 
 		var searchResult = this.state.allMovies.filter( (movie) => { 
@@ -40,6 +40,10 @@ class App extends React.Component {
 				notFound: true
 			}); 
 		}
+	}
+
+	addMovie() {
+		// var input = document.getElementById
 	}
 
 	render() {
