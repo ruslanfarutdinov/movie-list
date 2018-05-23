@@ -3,8 +3,8 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			allMovies: window.movies,
-			currentMovies: window.movies,
+			allMovies: [],
+			currentMovies: [],
 			notFound: false
 		};
 	}
@@ -52,7 +52,8 @@ class App extends React.Component {
 		moviesArr.push({title: addMovieValue});
 
 		this.setState({
-			allMovies: moviesArr
+			allMovies: moviesArr,
+			currentMovies: this.state.allMovies
 		}); 
 	}
 
