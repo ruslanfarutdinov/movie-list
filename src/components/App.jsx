@@ -55,9 +55,14 @@ class App extends React.Component {
 		}); 
 	}
 
+	toggleButton(movie) {
+		movie.watched = !movie.watched; 
+		this.setState({});
+	}
+
 	render() {
 		var notFound = this.state.notFound;
-		var listCurrentMovies = this.state.currentMovies.map( (movie) => <List movie={movie}/> );
+		var listCurrentMovies = this.state.currentMovies.map( (movie) => <List movie={movie} toggleButton={this.toggleButton.bind(this)}/> );
 
 		var display = notFound ? <NotFound/> : (<ul className="movies">{listCurrentMovies}</ul>);
 
