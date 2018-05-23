@@ -10,14 +10,14 @@ class App extends React.Component {
 	}
 
 	findVideo() {
-		var inputField = document.getElementById('search-movies');
-		var inputValue = inputField.value;
+		var searchMovieInput = document.getElementById('search-movies');
+		var searchMoviesValue = searchMovieInput.value;
 
 		var searchResult = this.state.allMovies.filter( (movie) => { 
 			var isThere = true;
 			
-			for (var i = 0; i < inputValue.length; i++) {
-			  if (movie.title[i] !== inputValue[i]) {
+			for (var i = 0; i < searchMoviesValue.length; i++) {
+			  if (movie.title[i] !== searchMoviesValue[i]) {
 			  	isThere = false;
 			  }	
 			}
@@ -30,7 +30,7 @@ class App extends React.Component {
 				notFound: false,
 				currentMovies: searchResult	
 			});
-		} else if(inputValue.length === 0) {
+		} else if(searchMoviesValue.length === 0) {
 			this.setState({
 				notFound: false,
 				currentMovies: this.state.allMovies
@@ -43,7 +43,17 @@ class App extends React.Component {
 	}
 
 	addMovie() {
-		// var input = document.getElementById
+		var addMovieInput = document.getElementById('add-movie');
+		var addMovieValue = addMovieInput.value;
+		console.log(this.state.allMovies);
+		console.log(this.state.currentMovies);
+		
+		var moviesArr = this.state.allMovies;
+		moviesArr.push({title: addMovieValue});
+
+		this.setState({
+			allMovies: moviesArr
+		}); 
 	}
 
 	render() {
@@ -58,7 +68,7 @@ class App extends React.Component {
 					<h2>MovieList</h2>
 				</div>
 
-				<AddMovies/>
+				<AddMovies addMovie={this.addMovie.bind(this)}/>
 
 				<Search findVideo={this.findVideo.bind(this)}/>
 
