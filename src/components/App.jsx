@@ -3,8 +3,8 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			allMovies: [],
-			currentMovies: [],
+			allMovies: window.movies,
+			currentMovies: window.movies,
 			notFound: false
 		};
 	}
@@ -45,11 +45,9 @@ class App extends React.Component {
 	addMovie() {
 		var addMovieInput = document.getElementById('add-movie');
 		var addMovieValue = addMovieInput.value;
-		console.log(this.state.allMovies);
-		console.log(this.state.currentMovies);
 		
 		var moviesArr = this.state.allMovies;
-		moviesArr.push({title: addMovieValue});
+		moviesArr.push({title: addMovieValue, watched: false});
 
 		this.setState({
 			allMovies: moviesArr,
