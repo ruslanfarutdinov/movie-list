@@ -54,6 +54,16 @@
 	border-radius: 5px;
 }
 
+.search {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.search-row {
+	margin-right: 10px;
+}
+
+
 
 
 

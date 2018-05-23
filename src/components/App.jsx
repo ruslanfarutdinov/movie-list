@@ -62,7 +62,9 @@ class App extends React.Component {
 
 	render() {
 		var notFound = this.state.notFound;
-		var listCurrentMovies = this.state.currentMovies.map( (movie) => <List movie={movie} toggleButton={this.toggleButton.bind(this)}/> );
+		var listCurrentMovies = this.state.currentMovies.map( (movie) => {
+			return <List movie={movie} toggleButton={this.toggleButton.bind(this)}/> 
+		});
 
 		var display = notFound ? <NotFound/> : (<ul className="movies">{listCurrentMovies}</ul>);
 
@@ -73,6 +75,8 @@ class App extends React.Component {
 				</div>
 
 				<AddMovies addMovie={this.addMovie.bind(this)}/>
+				
+					
 
 				<Search findVideo={this.findVideo.bind(this)}/>
 
