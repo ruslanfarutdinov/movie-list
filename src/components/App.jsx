@@ -61,6 +61,9 @@ class App extends React.Component {
 	}
 
 	showWatchedOrToWatch(event) {
+		$(`.search-row`).removeClass('clicked');
+		$(`#${event.target.id}`).addClass('clicked');
+
 		var watched;
 		event.target.id === 'watched' ? watched = true : watched = false;
 
@@ -73,8 +76,9 @@ class App extends React.Component {
 		});
 	}
 
-	showAllMovies() {
-		console.log('registering event')
+	showAllMovies(event) {
+		$(`.search-row`).removeClass('clicked');
+		$(`#${event.target.id}`).addClass('clicked');
 		this.setState({
 			currentMovies: this.state.allMovies
 		});

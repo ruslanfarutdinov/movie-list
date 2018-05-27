@@ -63,6 +63,12 @@
 	margin-right: 10px;
 }
 
+.clicked {
+	background-color: #6ba86f;
+	color: white;
+	border-radius: 5px; 	
+}
+
 
 
 
