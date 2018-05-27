@@ -11,18 +11,11 @@ class App extends React.Component {
 
 	findVideo() {
 		var searchMovieInput = document.getElementById('search-movies');
-		var searchMoviesValue = searchMovieInput.value;
+		var searchMoviesValue = searchMovieInput.value.toLowerCase();
 
 		var searchResult = this.state.allMovies.filter( (movie) => { 
-			var isThere = true;
-			
-			for (var i = 0; i < searchMoviesValue.length; i++) {
-			  if (movie.title[i] !== searchMoviesValue[i]) {
-			  	isThere = false;
-			  }	
-			}
-			
-			return isThere;
+			var lowerCaseTitle = movie.title.toLowerCase();
+			return lowerCaseTitle.includes(searchMoviesValue);
 		});
 
 		if (searchResult.length > 0) {
