@@ -60,10 +60,30 @@ class App extends React.Component {
 		this.setState({});
 	}
 
+	showWatchedOrToWatch(event) {
+		var watched;
+		event.target.id === 'watched' ? watched = true : watched = false;
+
+		var filteredMovies = this.state.allMovies.filter( (movie) => {
+			return movie.watched === watched;
+		});
+
+		this.setState({
+			currentMovies: filteredMovies
+		});
+	}
+
+	showAllMovies() {
+		console.log('registering event')
+		this.setState({
+			currentMovies: this.state.allMovies
+		});
+	}
+
 	render() {
 		var notFound = this.state.notFound;
-		var listCurrentMovies = this.state.currentMovies.map( (movie) => {
-			return <List movie={movie} toggleButton={this.toggleButton.bind(this)}/> 
+		var listCurrentMovies = this.state.currentMovies.map( (movie, i) => {
+			return <List key={i} movie={movie} toggleButton={this.toggleButton.bind(this)}/> 
 		});
 
 		var display = notFound ? <NotFound/> : (<ul className="movies">{listCurrentMovies}</ul>);
@@ -75,10 +95,9 @@ class App extends React.Component {
 				</div>
 
 				<AddMovies addMovie={this.addMovie.bind(this)}/>
-				
-					
 
-				<Search findVideo={this.findVideo.bind(this)}/>
+				<Search findVideo={this.findVideo.bind(this)} showWatchedOrToWatch={this.showWatchedOrToWatch.bind(this)} 
+				showAllMovies={this.showAllMovies.bind(this)}/>
 
 				{display}
 
