@@ -5,7 +5,8 @@ class App extends React.Component {
 		this.state = {
 			allMovies: window.movies,
 			currentMovies: window.movies,
-			notFound: false
+			notFound: false,
+			clickedMovie: ''
 		};
 	}
 
@@ -77,10 +78,24 @@ class App extends React.Component {
 		});
 	}
 
+	clickMovie(event) {
+		console.log(event.target.innerHTML);
+		var movie = event.target.innerHTML;
+		this.setState({
+			clickedMovie: movie
+		});
+	}
+
 	render() {
 		var notFound = this.state.notFound;
 		var listCurrentMovies = this.state.currentMovies.map( (movie, i) => {
-			return <List key={i} movie={movie} toggleButton={this.toggleButton.bind(this)}/> 
+			if (this.state.clickedMovie === movie.title) {
+				return [<List key={i} movie={movie} toggleButton={this.toggleButton.bind(this)} clickMovie={this.clickMovie.bind(this)}/>, 
+								<ListDescription key={i+1} movie={movie}/>]
+			} else {
+				return <List key={i} movie={movie} toggleButton={this.toggleButton.bind(this)} clickMovie={this.clickMovie.bind(this)}/> 			
+			}
+
 		});
 
 		var display = notFound ? <NotFound/> : (<ul className="movies">{listCurrentMovies}</ul>);

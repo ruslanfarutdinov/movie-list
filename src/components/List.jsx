@@ -1,4 +1,4 @@
-var List = ({movie, toggleButton}) => {
+var List = ({movie, toggleButton, clickMovie}) => {
   var button;
   if (movie.watched) {
     button = (<button className="toggle" onClick={toggleButton.bind(null, movie)}>Watched</button>);
@@ -7,7 +7,7 @@ var List = ({movie, toggleButton}) => {
   }
  
   return (
-    <li>
+    <li onClick={clickMovie}>
       {movie.title}
       {button}
     </li>
