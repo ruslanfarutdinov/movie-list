@@ -1,7 +1,10 @@
-## NPM ## 
+# NPM 
 node_modules/
 
-## Compiled Files ##
+# Compiled Files
 compiled/
+
+# API key
+config.js
 
 
